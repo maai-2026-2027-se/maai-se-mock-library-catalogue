@@ -1,0 +1,72 @@
+[
+  {
+    "id": "L1",
+    "round": 1,
+    "title": "List available books",
+    "function": "available_books(books)",
+    "dependencies": []
+  },
+  {
+    "id": "L2",
+    "round": 1,
+    "title": "Search titles and authors",
+    "function": "find_books(books, query)",
+    "dependencies": []
+  },
+  {
+    "id": "L3",
+    "round": 1,
+    "title": "Count books by author",
+    "function": "author_counts(books)",
+    "dependencies": []
+  },
+  {
+    "id": "L4",
+    "round": 2,
+    "title": "Fix borrowing without mutation",
+    "function": "borrow_book(books, title)",
+    "dependencies": []
+  },
+  {
+    "id": "L5",
+    "round": 2,
+    "title": "Fix catalogue ordering",
+    "function": "sort_books(books)",
+    "dependencies": []
+  },
+  {
+    "id": "L6",
+    "round": 2,
+    "title": "Fix ISBN formatting checks",
+    "function": "normalize_isbn(isbn)",
+    "dependencies": []
+  },
+  {
+    "id": "L7",
+    "round": 3,
+    "title": "Build the lending report",
+    "function": "lending_report(books)",
+    "dependencies": [
+      "L1",
+      "L3",
+      "L4"
+    ]
+  },
+  {
+    "id": "L8",
+    "round": 3,
+    "title": "Build a reading list",
+    "function": "reading_list(books, maximum_year)",
+    "dependencies": [
+      "L1",
+      "L5"
+    ]
+  },
+  {
+    "id": "L9",
+    "round": 3,
+    "title": "Export the catalogue to CSV",
+    "function": "to_csv(books)",
+    "dependencies": []
+  }
+]
