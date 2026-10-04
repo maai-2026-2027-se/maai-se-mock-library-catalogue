@@ -21,15 +21,23 @@ def find_books(books, query):
 
 def author_counts(books):
     """L3: Count books by author. See TASKS.md for the complete contract."""
-    raise NotImplementedError("Implement L3: Count books by author")
+    counts = {}
+    for book in books:
+        author = book["author"]
+        counts[author] = counts.get(author, 0) + 1
+    return counts
 
 
 def borrow_book(books, title):
     """L4: Fix borrowing without mutation. See TASKS.md for the complete contract."""
-    for book in books:
+    for index, book in enumerate(books):
         if book['title'] == title:
-            book['available'] = False
-    return books
+            if not book['available']:
+                raise ValueError(f"Book {title!r} is already unavailable")
+            result = [dict(item) for item in books]
+            result[index]['available'] = False
+            return result
+    raise KeyError(title)
 
 
 def sort_books(books):
