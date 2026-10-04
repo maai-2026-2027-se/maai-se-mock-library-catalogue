@@ -70,7 +70,14 @@ def normalize_isbn(isbn):
 
 def lending_report(books):
     """L7: Build the lending report. See TASKS.md for the complete contract."""
-    raise NotImplementedError("Implement L7: Build the lending report")
+    total = catalogue_size(books)
+    available = len(available_books(books))
+    return {
+        'total': total,
+        'available': available,
+        'borrowed': total - available,
+        'authors': author_counts(books),
+    }
 
 
 def reading_list(books, maximum_year):
