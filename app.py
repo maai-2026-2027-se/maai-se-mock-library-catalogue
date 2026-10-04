@@ -10,8 +10,14 @@ def catalogue_size(books):
 
 
 def available_books(books):
-    """L1: List available books. See TASKS.md for the complete contract."""
-    raise NotImplementedError("Implement L1: List available books")
+    """Return available books in their original order."""
+    result = []
+
+    for book in books:
+        if book["available"]:
+            result.append(book)
+
+    return result
 
 
 def find_books(books, query):
