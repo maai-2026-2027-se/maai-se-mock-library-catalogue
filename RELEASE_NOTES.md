@@ -1,3 +1,3 @@
 # Release notes
 
-Round 3 features: L9.
+Round 3 features: L8, L9.
