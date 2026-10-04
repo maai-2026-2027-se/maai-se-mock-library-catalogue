@@ -1,6 +1,4 @@
 """Library Catalogue: a small standard-library-only teaching project."""
-import csv
-import io
 import json
 
 
@@ -26,10 +24,14 @@ def author_counts(books):
 
 def borrow_book(books, title):
     """L4: Fix borrowing without mutation. See TASKS.md for the complete contract."""
-    for book in books:
+    for index, book in enumerate(books):
         if book['title'] == title:
-            book['available'] = False
-    return books
+            if not book['available']:
+                raise ValueError(f"Book {title!r} is already unavailable")
+            result = [dict(item) for item in books]
+            result[index]['available'] = False
+            return result
+    raise KeyError(title)
 
 
 def sort_books(books):
