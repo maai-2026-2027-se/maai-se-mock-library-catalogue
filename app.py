@@ -34,7 +34,7 @@ def borrow_book(books, title):
 
 def sort_books(books):
     """L5: Fix catalogue ordering. See TASKS.md for the complete contract."""
-    return sorted(books, key=lambda book: book['title'])
+    return sorted(books, key=lambda book: (book['year'], book['title'].casefold()))
 
 
 def normalize_isbn(isbn):
