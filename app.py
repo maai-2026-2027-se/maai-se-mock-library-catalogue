@@ -53,7 +53,14 @@ def sort_books(books):
 
 def normalize_isbn(isbn):
     """L6: Fix ISBN formatting checks. See TASKS.md for the complete contract."""
-    return isbn.replace('-', '')
+    normalized = isbn.replace(' ', '').replace('-', '').replace('x', 'X')
+    if normalized.isascii():
+        if len(normalized) == 13 and normalized.isdigit():
+            return normalized
+        if (len(normalized) == 10 and normalized[:9].isdigit()
+                and normalized[-1] in '0123456789X'):
+            return normalized
+    raise ValueError("ISBN must contain 13 ASCII digits or 9 ASCII digits followed by a digit or X")
 
 
 def lending_report(books):
