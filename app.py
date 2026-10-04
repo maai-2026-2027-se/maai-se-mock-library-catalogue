@@ -1,4 +1,6 @@
 """Library Catalogue: a small standard-library-only teaching project."""
+import csv  # noqa: F401 -- available for the round-three CSV task
+import io  # noqa: F401 -- available for the round-three CSV task
 import json
 
 
@@ -19,7 +21,11 @@ def find_books(books, query):
 
 def author_counts(books):
     """L3: Count books by author. See TASKS.md for the complete contract."""
-    raise NotImplementedError("Implement L3: Count books by author")
+    counts = {}
+    for book in books:
+        author = book["author"]
+        counts[author] = counts.get(author, 0) + 1
+    return counts
 
 
 def borrow_book(books, title):
