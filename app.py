@@ -83,7 +83,14 @@ def reading_list(books, maximum_year):
 
 def to_csv(books):
     """L9: Export the catalogue to CSV. See TASKS.md for the complete contract."""
-    raise NotImplementedError("Implement L9: Export the catalogue to CSV")
+    output = io.StringIO(newline='')
+    writer = csv.writer(output, lineterminator='\n')
+    writer.writerow(['title', 'author', 'year', 'available'])
+    for book in books:
+        writer.writerow([
+            book['title'], book['author'], book['year'], int(book['available'])
+        ])
+    return output.getvalue()
 
 
 if __name__ == "__main__":
