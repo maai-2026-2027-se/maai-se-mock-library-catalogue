@@ -82,7 +82,10 @@ def lending_report(books):
 
 def reading_list(books, maximum_year):
     """L8: Build a reading list. See TASKS.md for the complete contract."""
-    raise NotImplementedError("Implement L8: Build a reading list")
+    eligible = [
+        book for book in available_books(books) if book["year"] <= maximum_year
+    ]
+    return sort_books(eligible)
 
 
 def to_csv(books):
