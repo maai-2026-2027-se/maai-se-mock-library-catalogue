@@ -1,3 +1,4 @@
+# ruff: noqa: N999 -- Course task IDs require uppercase filenames used by check.py.
 import copy
 import csv
 import io
@@ -21,7 +22,7 @@ class TestL9(unittest.TestCase):
 
     def test_case_3(self):
         original = copy.deepcopy(EXAMPLE)
-        books = [dict(title='A, B', author='C\"D\nE', year=2020, available=False)]
+        books = [{'title': 'A, B', 'author': 'C\"D\nE', 'year': 2020, 'available': False}]
         self.assertEqual(list(csv.reader(io.StringIO(app.to_csv(books)))), [['title', 'author', 'year', 'available'], ['A, B', 'C\"D\nE', '2020', '0']])
         self.assertEqual(EXAMPLE, original, "Do not mutate input records")
 

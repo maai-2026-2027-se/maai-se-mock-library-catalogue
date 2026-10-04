@@ -1,6 +1,5 @@
+# ruff: noqa: N999 -- Course task IDs require uppercase filenames used by check.py.
 import copy
-import csv
-import io
 import unittest
 
 import app
@@ -27,7 +26,7 @@ class TestL2(unittest.TestCase):
 
     def test_case_4(self):
         original = copy.deepcopy(EXAMPLE)
-        book = dict(title='Straße', author='Straße', year=2020, available=True)
+        book = {'title': 'Straße', 'author': 'Straße', 'year': 2020, 'available': True}
         self.assertEqual(app.find_books([book], 'STRASSE'), [book])
         self.assertEqual(EXAMPLE, original, "Do not mutate input records")
 
