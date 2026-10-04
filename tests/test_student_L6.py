@@ -1,3 +1,4 @@
+# ruff: noqa: N999 -- Task IDs in filenames are required by check.py.
 import unittest
 
 import app

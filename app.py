@@ -1,6 +1,4 @@
 """Library Catalogue: a small standard-library-only teaching project."""
-import csv
-import io
 import json
 
 
