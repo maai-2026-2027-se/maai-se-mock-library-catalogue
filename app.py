@@ -22,7 +22,12 @@ def available_books(books):
 
 def find_books(books, query):
     """L2: Search titles and authors. See TASKS.md for the complete contract."""
-    raise NotImplementedError("Implement L2: Search titles and authors")
+    query = query.strip().casefold()
+    return [
+        book
+        for book in books
+        if query in book["title"].casefold() or query in book["author"].casefold()
+    ]
 
 
 def author_counts(books):
