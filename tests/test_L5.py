@@ -1,5 +1,6 @@
-# ruff: noqa: N999 -- Course task IDs require uppercase filenames used by check.py.
 import copy
+import csv
+import io
 import unittest
 
 import app
@@ -15,7 +16,7 @@ class TestL5(unittest.TestCase):
 
     def test_case_2(self):
         original = copy.deepcopy(EXAMPLE)
-        books = [{'title': t, 'author': 'A', 'year': 2020, 'available': True} for t in ['z', 'A', 'a']]
+        books = [dict(title=t, author='A', year=2020, available=True) for t in ['z', 'A', 'a']]
         self.assertEqual(app.sort_books(books), [books[1], books[2], books[0]])
         self.assertEqual(EXAMPLE, original, "Do not mutate input records")
 
@@ -29,10 +30,10 @@ class TestL5(unittest.TestCase):
 
     def test_year_takes_priority_over_title_and_titles_ignore_case(self):
         books = [
-            {'title': 'Banana', 'author': 'A', 'year': 2021, 'available': True},
-            {'title': 'Zebra', 'author': 'A', 'year': 1999, 'available': True},
-            {'title': 'apple', 'author': 'A', 'year': 2021, 'available': True},
-            {'title': 'Alpha', 'author': 'A', 'year': 2021, 'available': True},
+            dict(title='Banana', author='A', year=2021, available=True),
+            dict(title='Zebra', author='A', year=1999, available=True),
+            dict(title='apple', author='A', year=2021, available=True),
+            dict(title='Alpha', author='A', year=2021, available=True),
         ]
         original = copy.deepcopy(books)
         self.assertEqual(app.sort_books(books), [books[1], books[3], books[2], books[0]])

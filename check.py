@@ -2,9 +2,9 @@
 """Run baseline, completed-task, candidate-task, or final acceptance checks."""
 import argparse
 import json
+from pathlib import Path
 import sys
 import unittest
-from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))

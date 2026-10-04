@@ -1,5 +1,6 @@
-# ruff: noqa: N999 -- Course task IDs require uppercase filenames used by check.py.
 import copy
+import csv
+import io
 import unittest
 
 import app

@@ -1,5 +1,4 @@
 """Library Catalogue: a small standard-library-only teaching project."""
-
 import json
 
 
@@ -31,19 +30,19 @@ def author_counts(books):
 def borrow_book(books, title):
     """L4: Fix borrowing without mutation. See TASKS.md for the complete contract."""
     for book in books:
-        if book["title"] == title:
-            book["available"] = False
+        if book['title'] == title:
+            book['available'] = False
     return books
 
 
 def sort_books(books):
     """L5: Fix catalogue ordering. See TASKS.md for the complete contract."""
-    return sorted(books, key=lambda book: book["title"])
+    return sorted(books, key=lambda book: book['title'])
 
 
 def normalize_isbn(isbn):
     """L6: Fix ISBN formatting checks. See TASKS.md for the complete contract."""
-    return isbn.replace("-", "")
+    return isbn.replace('-', '')
 
 
 def lending_report(books):
@@ -62,10 +61,6 @@ def to_csv(books):
 
 
 if __name__ == "__main__":
-    example = [
-        {"title": "Python", "author": "Ada", "year": 2020, "available": True},
-        {"title": "Git", "author": "Lin", "year": 2019, "available": False},
-        {"title": "Testing", "author": "Ada", "year": 2022, "available": True},
-    ]
+    example = [{'title': 'Python', 'author': 'Ada', 'year': 2020, 'available': True}, {'title': 'Git', 'author': 'Lin', 'year': 2019, 'available': False}, {'title': 'Testing', 'author': 'Ada', 'year': 2022, 'available': True}]
     print(json.dumps(example, indent=2))
     print("catalogue_size:", catalogue_size(example))
